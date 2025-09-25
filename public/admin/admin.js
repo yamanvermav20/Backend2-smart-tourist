@@ -24,13 +24,57 @@ async function fetchSOSCount() {
 fetchSOSCount();
 
 // SOS Reports button click
-// Change SOS Reports button to open a new page
-sosReportsBtn.addEventListener('click', () => {
-  window.open('sos-reports.html', '_blank');
+// SOS Reports button click
+sosReportsBtn.addEventListener('click', async () => {
+  geoList.style.display = 'none'; // Hide geo-fenced areas
+  incidentList.style.display = 'block'; // Show SOS/incident list
+  const token = localStorage.getItem('token');
+  if (!token) return alert('You are not logged in');
+
+  try {
+    const res = await fetch('/api/incidents/sos/all', {
+      headers: { 'Authorization': 'Bearer ' + token }
+    });
+    const data = await res.json();
+
+    // Clear previous incidents
+    incidentList.innerHTML = '';
+
+    if (!data.length) {
+      incidentList.innerHTML = '<p>No SOS emergencies found.</p>';
+      return;
+    }
+
+    // Render each SOS emergency
+    data.forEach(i => {
+      incidentList.innerHTML += `
+        <div class="incident-card">
+          <p><strong>ID:</strong> ${i._id}</p>
+          <p><strong>User:</strong> ${i.userName || '-'} (${i.userPhone || '-'})</p>
+          <p><strong>Zone ID:</strong> ${i.zoneId || '-'}</p>
+          <p><strong>Latitude:</strong> ${i.latitude || '-'}</p>
+          <p><strong>Longitude:</strong> ${i.longitude || '-'}</p>
+          <p><strong>Priority:</strong> ${i.priority}</p>
+          <p><strong>Status:</strong> ${i.status}</p>
+          <p><strong>Message:</strong> ${i.message || '-'}</p>
+          <p><strong>Created At:</strong> ${new Date(i.createdAt).toLocaleString()}</p>
+        </div>
+        <hr>
+      `;
+    });
+
+    // Update count after fetching
+    countSOS.textContent = data.length;
+
+  } catch (err) {
+    console.error(err);
+    incidentList.innerHTML = '<p>Error fetching SOS reports.</p>';
+  }
 });
 
 allGeoBtn.onclick = async () => {
-  geoList.style.display = 'block';
+  incidentList.style.display = 'none'; // Hide SOS/incident list
+  geoList.style.display = 'block'; // Show geo-fenced areas
   geoList.innerText = 'Loading...';
   try {
     const res = await fetch('/api/zones', { headers });
