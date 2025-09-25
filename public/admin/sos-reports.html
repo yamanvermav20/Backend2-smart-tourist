@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SOS Reports</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>SOS Reports</h1>
+  <div id="sosList">Loading...</div>
+  <script>
+    const token = localStorage.getItem('token');
+    const headers = { 'Authorization': 'Bearer ' + token };
+    async function fetchSOSReports() {
+      const res = await fetch('/api/incidents/sos/all', { headers });
+      const data = await res.json();
+      const list = document.getElementById('sosList');
+      if (!Array.isArray(data) || !data.length) {
+        list.innerHTML = '<p>No SOS emergencies found.</p>';
+        return;
+      }
+      list.innerHTML = data.map(i => `
+        <div class="incident-card">
+          <p><strong>ID:</strong> ${i._id}</p>
+          <p><strong>User:</strong> ${i.userName || '-'} (${i.userPhone || '-'})</p>
+          <p><strong>Zone ID:</strong> ${i.zoneId || '-'}</p>
+          <p><strong>Latitude:</strong> ${i.latitude || '-'}</p>
+          <p><strong>Longitude:</strong> ${i.longitude || '-'}</p>
+          <p><strong>Priority:</strong> ${i.priority}</p>
+          <p><strong>Status:</strong> ${i.status}</p>
+          <p><strong>Message:</strong> ${i.message || '-'}</p>
+          <p><strong>Created At:</strong> ${new Date(i.createdAt).toLocaleString()}</p>
+        </div>
+        <hr>
+      `).join('');
+    }
+    fetchSOSReports();
+  </script>
+</body>
+</html>

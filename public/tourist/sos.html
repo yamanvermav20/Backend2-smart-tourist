@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOS Emergency - Smart Tourist Safety</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="sos-page-bg"></div>
+  <div class="sos-page-card">
+    <div class="sos-header">
+      <img src="https://img.icons8.com/ios-filled/60/fa314a/sos.png" class="sos-icon" alt="SOS Icon"/>
+      <h2>Send SOS Emergency</h2>
+      <p class="sos-sub">Describe your emergency and location. Help will be on the way!</p>
+    </div>
+    <form id="sosForm" class="sos-form">
+      <div class="input-group">
+        <label for="sosLat">Current Latitude</label>
+        <input type="number" id="sosLat" placeholder="Enter your latitude" step="any" required />
+      </div>
+      <div class="input-group">
+        <label for="sosLng">Current Longitude</label>
+        <input type="number" id="sosLng" placeholder="Enter your longitude" step="any" required />
+      </div>
+      <div class="input-group">
+        <label for="sosMsg">Emergency Message</label>
+        <textarea id="sosMsg" placeholder="Describe your emergency (e.g. medical, lost, threat...)" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="auth-btn">Send SOS</button>
+      <div id="sosResult" class="sos-result"></div>
+    </form>
+    <div class="sos-footer">
+      <a href="tourist.html">&#8592; Back to Dashboard</a>
+    </div>
+  </div>
+  <script src="sos.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourist Dashboard</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <nav class="tourist-navbar">
+    <div class="nav-logo">
+      <img src="https://img.icons8.com/ios-filled/32/ffffff/beach.png" alt="Logo" style="vertical-align:middle; margin-right:8px;"/>
+      <span>Tourist Safety</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="tourist.html">Home</a></li>
+      <li><a href="#" id="navProfile">Profile</a></li>
+      <li><a href="#" id="navSOS">SOS</a></li>
+      <li><a href="../index.html" id="navLogout">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="tourist-bg-illustration"></div>
+  <div class="tourist-dashboard">
+    <div class="tourist-header">
+      <img src="https://img.icons8.com/ios-filled/60/ffffff/beach.png" class="tourist-icon" alt="Tourist Icon"/>
+      <h2 id="touristWelcome">Welcome, Tourist!</h2>
+      <p class="tourist-sub">Stay safe and enjoy your journey.</p>
+    </div>
+    <div class="tourist-stats">
+      <div class="stat-card">
+        <img src="https://img.icons8.com/ios-filled/32/6366f1/checked-user-male.png"/>
+        <div>
+          <div class="stat-label">Your Incidents</div>
+          <div class="stat-value" id="statIncidents">0</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <img src="https://img.icons8.com/ios-filled/32/22c55e/marker.png"/>
+        <div>
+          <div class="stat-label">Current Zone</div>
+          <div class="stat-value" id="statZone">-</div>
+        </div>
+      </div>
+    </div>
+    <div class="tourist-actions">
+      <div class="tourist-card" id="sosCard">
+        <img src="https://img.icons8.com/ios-filled/40/fa314a/sos.png"/>
+        <h3>SOS Emergency</h3>
+        <p>Send an instant high-priority alert with your current zone and a message.</p>
+        <button id="sosBtn" class="tourist-btn">Send SOS</button>
+      </div>
+  <!-- SOS Modal -->
+  <div id="sosModal" class="modal-bg" style="display:none;">
+    <div class="modal-card">
+      <h3>Send SOS Emergency</h3>
+      <form id="sosForm">
+        <div class="input-group">
+          <label for="sosZone">Zone ID</label>
+          <input type="text" id="sosZone" placeholder="Enter your current zone ID" required />
+        </div>
+        <div class="input-group">
+          <label for="sosMsg">Emergency Message</label>
+          <textarea id="sosMsg" placeholder="Describe your emergency (e.g. medical, lost, threat...)" rows="3" required></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="sosCancel" class="modal-btn cancel">Cancel</button>
+          <button type="submit" class="modal-btn send">Send SOS</button>
+        </div>
+      </form>
+    </div>
+  </div>
+      <div class="tourist-card" id="profileCard">
+        <img src="https://img.icons8.com/ios-filled/40/6366f1/user-male-circle.png"/>
+        <h3>Profile</h3>
+        <p>View and update your info and emergency contacts.</p>
+        <button id="profileBtn" class="tourist-btn">View Profile</button>
+      </div>
+      <div class="tourist-card" id="geoCard">
+        <img src="https://img.icons8.com/ios-filled/40/22c55e/marker.png"/>
+        <h3>Geo-Fencing Check</h3>
+        <p>Check if your current zone is safe or dangerous.</p>
+        <button id="geoFenceBtn" class="tourist-btn">Check Zone</button>
+        <!-- Removed 'View All Zones' button and related options as requested -->
+      </div>
+    </div>
+  <div id="touristContent" class="tourist-content"></div>
+  <div id="geoZonesList" class="geo-zones-list" style="display:none;"></div>
+  <div id="safeZonesList" class="geo-zones-list" style="display:none;"></div>
+  </div>
+  <script src="tourist.js"></script>
+</body>
+</html>

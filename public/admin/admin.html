@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="admin-dashboard-bg"></div>
+  <div class="admin-dashboard">
+    <div class="admin-header">
+      <img src="https://img.icons8.com/ios-filled/60/6366f1/admin-settings-male.png" class="admin-icon" alt="Admin Icon"/>
+      <h2>Admin Dashboard</h2>
+      <p class="admin-sub">Monitor incidents, SOS alerts, and manage tourist safety.</p>
+    </div>
+    <div class="admin-summary">
+      <div class="admin-summary-card" id="summaryAll">
+        <div class="summary-label">All Incidents</div>
+        <div class="summary-value" id="countAll">-</div>
+      </div>
+      <div class="admin-summary-card" id="summarySOS">
+        <div class="summary-label">SOS Reports</div>
+        <div class="summary-value" id="countSOS">-</div>
+      </div>
+      <div class="admin-summary-card" id="summaryPending">
+        <div class="summary-label">Pending</div>
+        <div class="summary-value" id="countPending">-</div>
+      </div>
+      <div class="admin-summary-card" id="summaryResolved">
+        <div class="summary-label">Resolved</div>
+        <div class="summary-value" id="countResolved">-</div>
+      </div>
+    </div>
+    <div class="admin-actions">
+  <!-- Removed 'Check All Incidents' button as requested -->
+      <button id="sosReportsBtn" class="admin-btn">SOS Reports</button>
+      <button id="pendingBtn" class="admin-btn">Pending Issues</button>
+      <button id="resolvedBtn" class="admin-btn">Resolved Issues</button>
+  <button id="addGeoBtn" class="admin-btn">Add Geo-Fenced Area</button>
+  <button id="allGeoBtn" class="admin-btn">Show All Geo-Fenced Areas</button>
+    </div>
+  <div id="incidentList" class="admin-incident-list"></div>
+  <div id="geoList" class="admin-incident-list" style="display:none;"></div>
+
+    <!-- Modal for Adding Geo-Fenced Area -->
+    <div id="geoModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close" id="closeGeoModal">&times;</span>
+        <h3>Add Geo-Fenced Area</h3>
+        <form id="geoForm">
+          <label for="geoName">Area Name</label>
+          <input type="text" id="geoName" name="geoName" required><br>
+          <label for="geoDesc">Description</label>
+          <input type="text" id="geoDesc" name="geoDesc" required><br>
+          <label for="geoType">Type</label>
+          <select id="geoType" name="geoType" required>
+            <option value="">Select type</option>
+            <option value="safe">Safe</option>
+            <option value="danger">Danger</option>
+          </select><br>
+          <label for="geoCoords">Coordinates (comma-separated lat,lng pairs)</label>
+          <textarea id="geoCoords" name="geoCoords" rows="3" required placeholder="e.g. 28.61,77.23;28.62,77.24"></textarea><br>
+          <button type="submit" class="admin-btn">Add Area</button>
+        </form>
+        <div id="geoMsg"></div>
+      </div>
+    </div>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>

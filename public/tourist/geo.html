@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geo-Fencing Check - Smart Tourist Safety</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="geo-page-bg"></div>
+  <div class="geo-page-card">
+    <div class="geo-header">
+      <img src="https://img.icons8.com/ios-filled/60/22c55e/marker.png" class="geo-icon" alt="Geo Icon"/>
+      <h2>Geo-Fencing Check</h2>
+      <p class="geo-sub">Check if your current zone is safe or dangerous.</p>
+    </div>
+    <div id="zonesList" class="geo-zones-list">
+      <h3>All Geo-Fenced Zones</h3>
+      <div id="zonesLoading">Loading zones...</div>
+      <ul id="zonesUl"></ul>
+    </div>
+    <div class="geo-footer">
+      <a href="tourist.html">&#8592; Back to Dashboard</a>
+    </div>
+  </div>
+  <script src="geo.js"></script>
+</body>
+</html>
