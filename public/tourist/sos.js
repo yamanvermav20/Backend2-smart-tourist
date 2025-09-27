@@ -1,4 +1,3 @@
-// SOS Page JS
 const token = localStorage.getItem('token');
 const headers = { 'Authorization': 'Bearer ' + token };
 const sosForm = document.getElementById('sosForm');
@@ -10,8 +9,6 @@ sosForm.onsubmit = async function(e) {
   const longitude = Number(document.getElementById('sosLng').value);
   const message = document.getElementById('sosMsg').value;
   const body = { latitude, longitude, message };
-  // Debug: log what is being sent
-  // console.log('Sending SOS:', body);
   const res = await fetch('/api/incidents/sos', {
     method: 'POST',
     headers: { ...headers, 'Content-Type': 'application/json' },

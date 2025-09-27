@@ -1,4 +1,3 @@
-// Profile Page JS
 const token = localStorage.getItem('token');
 const headers = { 'Authorization': 'Bearer ' + token };
 const profileContent = document.getElementById('profileContent');
@@ -21,7 +20,6 @@ async function loadProfile() {
         <span class="profile-value profile-contacts">${(data.emergencyContacts||[]).length ? data.emergencyContacts.map(c=>`${c.name} (${c.phone})`).join('<br>') : 'None'}</span>
       </div>
     `;
-    // Attach phone form handler
     document.getElementById('phoneForm').onsubmit = async function(e) {
       e.preventDefault();
       phoneMsg.innerText = 'Saving...';

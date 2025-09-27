@@ -1,6 +1,5 @@
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Show All Geo-Fenced Areas
   const allGeoBtn = document.getElementById('allGeoBtn');
   const geoList = document.getElementById('geoList');
   const sosReportsBtn = document.getElementById('sosReportsBtn');
@@ -22,10 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Initial count update
   fetchSOSCount();
 
-  // SOS Reports button click
   sosReportsBtn.addEventListener('click', async () => {
     geoList.style.display = 'none'; // Hide geo-fenced areas
     incidentList.style.display = 'block'; // Show SOS/incident list
@@ -46,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      // Render each SOS emergency
       data.forEach(i => {
         incidentList.innerHTML += `
           <div class="incident-card">
@@ -64,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
       });
 
-      // Update count after fetching
       countSOS.textContent = data.length;
 
     } catch (err) {
@@ -97,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  // Admin Dashboard JS
   const token = localStorage.getItem('token');
   const headers = { 'Authorization': 'Bearer ' + token };
 
@@ -132,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (res.ok) fetchIncidents();
   }
 
-  // --- Add Geo-Fenced Area Modal Logic ---
   const geoModal = document.getElementById('geoModal');
   const addGeoBtn = document.getElementById('addGeoBtn');
   const closeGeoModal = document.getElementById('closeGeoModal');

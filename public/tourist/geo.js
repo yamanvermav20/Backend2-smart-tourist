@@ -1,4 +1,4 @@
-// Geo-Fencing Page JS
+
 const token = localStorage.getItem('token');
 const headers = { 'Authorization': 'Bearer ' + token };
 const zonesUl = document.getElementById('zonesUl');

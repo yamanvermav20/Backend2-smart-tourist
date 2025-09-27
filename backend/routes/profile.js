@@ -3,7 +3,7 @@ const auth = require('../middleware/auth');
 const User = require('../models/User');
 const router = express.Router();
 
-// GET /api/profile - Get current user's profile
+// GET /api/profile - Get current user ki profile
 router.get('/', auth(), async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');

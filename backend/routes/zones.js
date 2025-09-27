@@ -3,7 +3,7 @@ const auth = require('../middleware/auth');
 const Zone = require('../models/Zone');
 const router = express.Router();
 
-// GET /api/zones/safe - List all safe zones only
+// GET /api/zones/safe - list for safe zones for future purpose
 router.get('/safe', auth(), async (req, res) => {
   try {
     const safeZones = await Zone.find({ type: 'safe' });
@@ -12,7 +12,6 @@ router.get('/safe', auth(), async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-// POST /api/zones - Create a new geo-fenced area
 router.post('/', auth(), async (req, res) => {
   try {
     const { name, description, coordinates, type } = req.body;
@@ -24,7 +23,6 @@ router.post('/', auth(), async (req, res) => {
   }
 });
 
-// (Optional) GET /api/zones - List all zones
 router.get('/', auth(), async (req, res) => {
   try {
     const zones = await Zone.find();

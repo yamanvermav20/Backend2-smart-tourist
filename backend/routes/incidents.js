@@ -4,7 +4,7 @@ const SOSEmergency = require('../models/SOSEmergency');
 const Zone = require('../models/Zone');
 const router = express.Router();
 
-// POST /api/incidents/sos - Tourist sends SOS
+// POST /api/incidents/sos post karega sos 
 router.post('/sos', auth(), async (req, res) => {
   try {
     let { latitude, longitude, message } = req.body;
@@ -21,7 +21,7 @@ router.post('/sos', auth(), async (req, res) => {
     ) {
       return res.status(400).json({ message: 'Latitude, longitude, and message required' });
     }
-    // Try to find a zone, but do not require it
+
     const allZones = await Zone.find();
     let foundZone = null;
     for (const zone of allZones) {
@@ -38,7 +38,6 @@ router.post('/sos', auth(), async (req, res) => {
       }
       if (foundZone) break;
     }
-    // Fetch user details for name and phone
     const User = require('../models/User');
     const user = await User.findById(req.user.id);
     const sosEmergency = new SOSEmergency({
@@ -60,7 +59,7 @@ router.post('/sos', auth(), async (req, res) => {
 });
 
 
-// GET /api/incidents/sos/count - Get count of SOS emergencies for logged-in user
+// GET /api/incidents/sos/count - Get karega sos ka count
 router.get('/sos/count', auth(), async (req, res) => {
   try {
     const count = await SOSEmergency.countDocuments({ userId: req.user.id });
@@ -70,7 +69,7 @@ router.get('/sos/count', auth(), async (req, res) => {
   }
 });
 
-// GET /api/incidents/sos/all - Get all SOS emergencies (Admin only)
+// GET /api/incidents/sos/all - Get karega sos ko
 router.get('/sos/all', auth('admin'), async (req, res) => {
   try {
     const allSOS = await SOSEmergency.find().sort({ createdAt: -1 }); // latest first

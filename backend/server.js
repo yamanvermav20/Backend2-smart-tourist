@@ -10,7 +10,7 @@ app.use(express.json());
 const path = require('path');
 app.use(express.static(path.join(__dirname, '../public')));
 
-// API Routes
+// api all routes 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/profile', require('./routes/profile'));
 app.use('/api/incidents', require('./routes/incidents'));

@@ -11,7 +11,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
   });
   const data = await res.json();
   if (res.ok) {
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
   } else {
     document.getElementById('registerError').innerText = data.message || 'Registration failed';
   }
