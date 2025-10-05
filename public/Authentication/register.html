@@ -3,41 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Tourist Safety - Register</title>
+  <title>Smart Tourist Safety - Create Account</title>
   <link rel="stylesheet" href="../style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="auth-card">
-    <div class="auth-header">
-      <img src="https://img.icons8.com/ios-filled/50/007bff/add-user-group-man-man.png" alt="Register Icon" class="auth-icon"/>
-      <h2>Sign Up</h2>
+<body class="auth-body">
+  <div class="auth-container">
+    <!-- Background Elements -->
+    <div class="auth-bg-decorations">
+      <div class="auth-bg-circle auth-bg-circle-1"></div>
+      <div class="auth-bg-circle auth-bg-circle-2"></div>
+      <div class="auth-bg-circle auth-bg-circle-3"></div>
     </div>
-    <form id="registerForm" class="auth-form">
-      <div class="input-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Enter your name" required />
+    
+    <!-- Main Content -->
+    <div class="auth-content">
+      <!-- Left Side - Branding -->
+      <div class="auth-branding">
+        <div class="auth-brand-logo">
+          <div class="brand-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h1>Smart Tourist Safety</h1>
+        </div>
+        <div class="auth-brand-text">
+          <h2>Join Our Safety Community</h2>
+          <p>Create your account to access our comprehensive safety platform and connect with a global network of secure travelers.</p>
+          <div class="auth-features">
+            <div class="feature-item">
+              <i class="fas fa-user-shield"></i>
+              <span>Secure Account Protection</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-mobile-alt"></i>
+              <span>Mobile Safety Alerts</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-chart-line"></i>
+              <span>Safety Analytics Dashboard</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" required />
+      
+      <!-- Right Side - Registration Form -->
+      <div class="auth-form-container">
+        <div class="auth-card-modern">
+          <div class="auth-header-modern">
+            <h3>Create Your Account</h3>
+            <p>Join thousands of travelers staying safe worldwide</p>
+          </div>
+          
+          <form id="registerForm" class="auth-form-modern">
+            <div class="input-group-modern">
+              <label for="name">Full Name</label>
+              <div class="input-wrapper">
+                <i class="fas fa-user"></i>
+                <input type="text" id="name" placeholder="Enter your full name" required autocomplete="name" />
+              </div>
+            </div>
+            
+            <div class="input-group-modern">
+              <label for="email">Email Address</label>
+              <div class="input-wrapper">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Enter your email address" required autocomplete="email" />
+              </div>
+            </div>
+            
+            <div class="input-group-modern">
+              <label for="password">Password</label>
+              <div class="input-wrapper">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Create a secure password" required autocomplete="new-password" />
+                <button type="button" class="password-toggle" id="passwordToggle" title="Show password">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="password-strength" id="passwordStrength">
+                <div class="strength-meter">
+                  <div class="strength-fill"></div>
+                </div>
+                <span class="strength-text">Password strength</span>
+              </div>
+            </div>
+            
+            <div class="input-group-modern">
+              <label for="role">Account Type</label>
+              <div class="input-wrapper select-wrapper">
+                <i class="fas fa-users-cog"></i>
+                <select id="role" required>
+                  <option value="">Select your role</option>
+                  <option value="tourist">Tourist - Explore safely</option>
+                  <option value="admin">Administrator - Manage safety</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+            </div>
+            
+            <div class="form-options">
+              <label class="checkbox-wrapper">
+                <input type="checkbox" id="agreeTerms" required>
+                <span class="checkmark"></span>
+                I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+              </label>
+            </div>
+            
+            <div class="form-options">
+              <label class="checkbox-wrapper">
+                <input type="checkbox" id="subscribeNewsletter">
+                <span class="checkmark"></span>
+                Subscribe to safety updates and newsletters
+              </label>
+            </div>
+            
+            <button type="submit" class="auth-btn-modern" id="registerBtn">
+              <span class="btn-text">Create Account</span>
+              <div class="btn-loader" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+              </div>
+            </button>
+          </form>
+          
+          <div class="auth-divider">
+            <span>or sign up with</span>
+          </div>
+          
+          <div class="social-login">
+            <button type="button" class="social-btn google-btn">
+              <i class="fab fa-google"></i>
+              <span>Google</span>
+            </button>
+            <button type="button" class="social-btn microsoft-btn">
+              <i class="fab fa-microsoft"></i>
+              <span>Microsoft</span>
+            </button>
+          </div>
+          
+          <div class="auth-footer-modern">
+            <span>Already have an account?</span> 
+            <a href="login.html" class="auth-link">Sign in instead</a>
+          </div>
+          
+          <div id="registerError" class="error-modern" style="display: none;"></div>
+          <div id="registerSuccess" class="success-modern" style="display: none;"></div>
+        </div>
       </div>
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Create a password" required />
-      </div>
-      <div class="input-group">
-        <label for="role">Role</label>
-        <select id="role" required>
-          <option value="tourist">Tourist</option>
-          <option value="admin">Admin</option>
-        </select>
-      </div>
-      <button type="submit" class="auth-btn">Register</button>
-    </form>
-    <div class="auth-footer">
-      <span>Already have an account?</span> <a href="../index.html">Login</a>
     </div>
-    <div id="registerError" class="error"></div>
   </div>
   <script src="register.js"></script>
 </body>

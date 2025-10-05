@@ -19,6 +19,7 @@
       <li><a href="../index.html" id="navLogout">Logout</a></li>
     </ul>
   </nav>
+  <section class="tourist-hero" style="background-image:url('/images/TouristImage.jpg');" aria-label="Dashboard hero image"></section>
   <div class="tourist-bg-illustration"></div>
   <div class="tourist-dashboard">
     <div class="tourist-header">
@@ -42,12 +43,35 @@
         </div>
       </div>
     </div>
-    <div class="tourist-actions">
-      <div class="tourist-card" id="sosCard">
-        <img src="https://img.icons8.com/ios-filled/40/fa314a/sos.png"/>
-        <h3>SOS Emergency</h3>
-        <p>Send an instant high-priority alert with your current zone and a message.</p>
-        <button id="sosBtn" class="tourist-btn">Send SOS</button>
+    <div class="tourist-premium">
+      <div class="premium-row">
+        <img src="/images/TouristImage1.jpg" alt="Destination highlight 1" class="premium-img" />
+        <div class="premium-actions">
+          <div class="tourist-card" id="sosCard">
+            <img src="https://img.icons8.com/ios-filled/40/fa314a/sos.png"/>
+            <h3>SOS Emergency</h3>
+            <p>Send an instant high-priority alert with your current zone and a message.</p>
+            <button id="sosBtn" class="tourist-btn">Send SOS</button>
+          </div>
+          <div class="tourist-card" id="profileCard">
+            <img src="https://img.icons8.com/ios-filled/40/6366f1/user-male-circle.png"/>
+            <h3>Profile</h3>
+            <p>View and update your info and emergency contacts.</p>
+            <button id="profileBtn" class="tourist-btn">View Profile</button>
+          </div>
+        </div>
+      </div>
+      <div class="premium-row alt">
+        <div class="premium-actions">
+          <div class="tourist-card" id="geoCard">
+            <img src="https://img.icons8.com/ios-filled/40/22c55e/marker.png"/>
+            <h3>Geo-Fencing Check</h3>
+            <p>Check if your current zone is safe or dangerous.</p>
+            <button id="geoFenceBtn" class="tourist-btn">Check Zone</button>
+            <!-- Removed 'View All Zones' button and related options as requested -->
+          </div>
+        </div>
+        <img src="/images/TouristImage2.jpg" alt="Destination highlight 2" class="premium-img" />
       </div>
   <!-- SOS Modal -->
   <div id="sosModal" class="modal-bg" style="display:none;">
@@ -69,24 +93,32 @@
       </form>
     </div>
   </div>
-      <div class="tourist-card" id="profileCard">
-        <img src="https://img.icons8.com/ios-filled/40/6366f1/user-male-circle.png"/>
-        <h3>Profile</h3>
-        <p>View and update your info and emergency contacts.</p>
-        <button id="profileBtn" class="tourist-btn">View Profile</button>
-      </div>
-      <div class="tourist-card" id="geoCard">
-        <img src="https://img.icons8.com/ios-filled/40/22c55e/marker.png"/>
-        <h3>Geo-Fencing Check</h3>
-        <p>Check if your current zone is safe or dangerous.</p>
-        <button id="geoFenceBtn" class="tourist-btn">Check Zone</button>
-        <!-- Removed 'View All Zones' button and related options as requested -->
-      </div>
     </div>
   <div id="touristContent" class="tourist-content"></div>
   <div id="geoZonesList" class="geo-zones-list" style="display:none;"></div>
   <div id="safeZonesList" class="geo-zones-list" style="display:none;"></div>
   </div>
+  <footer class="tourist-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="brand-mark">TS</div>
+        <div>
+          <div class="brand-name">Tourist Safety</div>
+          <div class="brand-tag">Stay safe. Explore more.</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="tourist.html">Home</a>
+        <a href="#" id="footerProfile">Profile</a>
+        <a href="#" id="footerSOS">SOS</a>
+        <a href="geo.html">Geo-Fencing</a>
+      </div>
+      <div class="footer-contact">
+        <div>Need help? support@touristsafety.app</div>
+        <div class="copyright">© <span id="yearNow"></span> Tourist Safety</div>
+      </div>
+    </div>
+  </footer>
   <script src="tourist.js"></script>
 </body>
 </html>
